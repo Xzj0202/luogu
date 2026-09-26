@@ -1,0 +1,58 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      // F5 之前自动跑；也可以手动 Ctrl+Shift+B 触发。
+      // 和 Code Runner 的 ▶ 产物落在同一个 build/ 下，只是这里用 -O0 -g：
+      // 优化关掉、调试符号带上，断点和变量才看得准。
+      "label": "C++: 编译当前文件(调试)",
+      "type": "shell",
+      "command": "g++",
+      "args": [
+        "-std=c++17",
+        "-g",
+        "-O0",
+        "-Wall",
+        "-o",
+        "${workspaceFolder}/build/${fileBasenameNoExtension}.exe",
+        "${file}"
+      ],
+      "options": {
+        "cwd": "${fileDirname}"
+      },
+      "dependsOrder": "sequence",
+      "dependsOn": [
+        "C++: 准备 build 目录"
+      ],
+      "problemMatcher": [
+        "$gcc"
+      ],
+      "presentation": {
+        "reveal": "silent",
+        "panel": "shared",
+        "clear": true
+      },
+      "group": {
+        "kind": "build",
+        "isDefault": true
+      }
+    },
+    {
+      // 只负责保证 build/ 存在。Code Runner 那边是在命令里自己 mkdir 的，
+      // 但 F5 走的是任务，所以要单独放这一步，否则删过 build/ 之后 F5 会编译失败。
+      "label": "C++: 准备 build 目录",
+      "type": "shell",
+      "command": "mkdir",
+      "args": [
+        "-Force",
+        "${workspaceFolder}/build"
+      ],
+      "presentation": {
+        "reveal": "silent",
+        "panel": "shared",
+        "clear": true
+      },
+      "problemMatcher": []
+    }
+  ]
+}

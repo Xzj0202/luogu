@@ -1,0 +1,13 @@
+{
+  // ===== 这个项目自己的设置。运行按钮、格式化那些都在 VSCode 的全局 User 设置里 =====
+  // 原先这一整坨 C_Cpp_Runner.* 是 franneck94.c-cpp-runner 扩展自动写进来的。
+  // 那个扩展和 cpptools 的功能、按钮完全重复，已经卸掉了，配置一起清掉。
+
+  // build/ 里全是编译产物，别让它进全文搜索和文件监视。
+  "search.exclude": {
+    "build/**": true
+  },
+  "files.watcherExclude": {
+    "**/build/**": true
+  }
+}

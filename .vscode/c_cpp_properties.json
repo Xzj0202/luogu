@@ -1,0 +1,19 @@
+{
+  // IntelliSense 用的配置，只管补全和报错提示，不影响实际编译。
+  // 这里必须和全局 code-runner.executorMap 里的 -std=c++17 保持一致：
+  // 之前这两个是 ${default}，会继承全局的 C_Cpp.default.cppStandard = c++26，
+  // 结果是 IntelliSense 放行的 C++20/23 写法，一编译就报错。
+  "version": 4,
+  "configurations": [
+    {
+      "name": "w64devkit GCC 16 / C++17",
+      "includePath": [
+        "${workspaceFolder}/**"
+      ],
+      "compilerPath": "D:/Program Files/C++/w64devkit/bin/gcc.exe",
+      "cStandard": "c17",
+      "cppStandard": "c++17",
+      "intelliSenseMode": "windows-gcc-x64"
+    }
+  ]
+}
